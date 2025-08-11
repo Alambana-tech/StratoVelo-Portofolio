@@ -504,18 +504,33 @@
 
         /* ENHANCED MOBILE RESPONSIVE STYLES */
         @media (max-width: 768px) {
+            /* Navigation Mobile */
+            nav {
+                padding: 1.2rem 4%;
+            }
+
+            .logo {
+                font-size: 2.2rem;
+            }
+
+            .logo svg {
+                width: 45px;
+                height: 45px;
+                margin-right: 12px;
+            }
+
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 90px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 90px);
                 background: rgba(26, 26, 26, 0.98);
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                padding-top: 3rem;
-                gap: 3rem;
+                padding-top: 4rem;
+                gap: 4rem;
                 transition: left 0.3s ease;
             }
 
@@ -524,8 +539,9 @@
             }
 
             .nav-links a {
-                font-size: 1.4rem;
-                padding: 1rem 2rem;
+                font-size: 2rem;
+                padding: 1.5rem 3rem;
+                font-weight: 600;
             }
 
             .mobile-menu {
@@ -533,289 +549,457 @@
             }
 
             .mobile-menu span {
-                width: 30px;
-                height: 4px;
+                width: 35px;
+                height: 5px;
+                margin: 4px 0;
             }
 
             /* Enhanced Hero Section for Mobile */
             .hero {
-                padding: 2rem 1rem;
+                padding: 3rem 1.5rem;
                 min-height: 100vh;
             }
 
             .hero h1 {
-                font-size: 3.5rem;
-                margin-bottom: 1.5rem;
+                font-size: 5rem;
+                margin-bottom: 2rem;
                 line-height: 1.1;
             }
 
             .hero p {
-                font-size: 1.4rem;
-                margin-bottom: 2.5rem;
+                font-size: 2rem;
+                margin-bottom: 3rem;
                 letter-spacing: 1px;
+                font-weight: 400;
             }
 
             .cta-button {
-                padding: 18px 35px;
-                font-size: 1.1rem;
+                padding: 22px 50px;
+                font-size: 1.4rem;
+                font-weight: 700;
             }
 
             /* Enhanced Section Spacing */
             .section {
-                padding: 4rem 1.5rem;
+                padding: 5rem 2rem;
             }
 
             .section h2 {
-                font-size: 2.8rem;
-                margin-bottom: 2.5rem;
+                font-size: 3.5rem;
+                margin-bottom: 3.5rem;
                 line-height: 1.2;
+                font-weight: 800;
+            }
+
+            .section h2::after {
+                width: 100px;
+                height: 4px;
             }
 
             /* About Section Mobile */
             .about-content {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 4rem;
             }
 
             .about-text {
-                font-size: 1.2rem;
-                line-height: 1.8;
+                font-size: 1.5rem;
+                line-height: 1.9;
             }
 
             .about-text h3 {
-                font-size: 1.6rem;
-                margin-bottom: 1.2rem;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                font-weight: 700;
             }
 
             .about-text p {
-                margin-bottom: 1.5rem;
+                margin-bottom: 2rem;
+                font-size: 1.4rem;
+            }
+
+            .about-text strong {
+                font-size: 1.5rem;
+                font-weight: 700;
             }
 
             .about-stats {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 2rem;
             }
 
             .stat-item {
-                padding: 2.5rem 1.5rem;
+                padding: 3rem 2rem;
             }
 
             .stat-number {
-                font-size: 3rem;
+                font-size: 4rem;
+                font-weight: 800;
             }
 
             .stat-label {
-                font-size: 1rem;
-                margin-top: 0.5rem;
+                font-size: 1.3rem;
+                margin-top: 0.8rem;
+                font-weight: 600;
             }
 
             /* Gallery Mobile */
             .gallery-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
             }
 
             .gallery-item {
-                height: 280px;
+                height: 320px;
+            }
+
+            .gallery-overlay {
+                padding: 2rem;
             }
 
             .gallery-text h4 {
-                font-size: 1.4rem;
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+                font-weight: 700;
             }
 
             .gallery-text p {
-                font-size: 1rem;
+                font-size: 1.3rem;
+                line-height: 1.6;
             }
 
             /* Events Mobile */
             .event-item {
-                padding: 2.5rem 1.5rem;
+                padding: 3rem 2rem;
             }
 
             .event-date {
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
+                font-size: 1.3rem;
+                padding: 1rem 2rem;
+                font-weight: 700;
             }
 
             .event-title {
-                font-size: 1.5rem;
-                margin-bottom: 1.2rem;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                font-weight: 700;
             }
 
             .event-description {
-                font-size: 1.1rem;
-                line-height: 1.7;
-            }
-
-            /* Contact Mobile */
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .form-group label {
-                font-size: 1.1rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .form-group input,
-            .form-group textarea,
-            .form-group select {
-                padding: 1.2rem;
-                font-size: 1.1rem;
-            }
-
-            .form-group textarea {
-                min-height: 150px;
-            }
-
-            .submit-btn {
-                padding: 1.3rem 2.5rem;
-                font-size: 1.1rem;
-            }
-
-            .contact-item {
-                padding: 2rem 1.5rem;
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-
-            .contact-item h4 {
-                font-size: 1.3rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .contact-item p {
-                font-size: 1.1rem;
-                line-height: 1.6;
-            }
-
-            .contact-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.3rem;
-                flex-shrink: 0;
-            }
-
-            .social-links {
-                gap: 1.5rem;
-                margin-top: 2.5rem;
-            }
-
-            .social-link {
-                width: 60px;
-                height: 60px;
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+                line-height: 1.8;
             }
 
             /* Routes Section Mobile */
             .routes-grid {
                 grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+                gap: 2.5rem !important;
             }
 
             .route-item {
-                padding: 2.5rem 1.5rem !important;
+                padding: 3rem 2rem !important;
             }
 
             .route-item h4 {
-                font-size: 1.4rem !important;
-                margin-bottom: 1.2rem !important;
+                font-size: 1.8rem !important;
+                margin-bottom: 1.5rem !important;
+                font-weight: 700 !important;
             }
 
             .route-item p:first-of-type {
-                font-size: 1.1rem !important;
-                margin-bottom: 1.2rem !important;
+                font-size: 1.4rem !important;
+                margin-bottom: 1.5rem !important;
+                font-weight: 600 !important;
             }
 
             .route-item p:last-of-type {
-                font-size: 1rem !important;
+                font-size: 1.2rem !important;
+                line-height: 1.6 !important;
             }
 
-            /* Footer Mobile */
-            .footer-logo {
-                font-size: 1.8rem;
+            .routes-grid h3 {
+                font-size: 2.5rem !important;
+                margin-bottom: 3rem !important;
+                font-weight: 700 !important;
             }
 
-            .footer-text {
-                font-size: 1.1rem;
-                line-height: 1.6;
+            /* Contact Mobile */
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
             }
 
-            .footer-bottom {
-                font-size: 1rem;
-            }
-        }
-
-        /* Extra Small Mobile Devices */
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .cta-button {
-                padding: 16px 30px;
-                font-size: 1rem;
-            }
-
-            .section {
-                padding: 3rem 1rem;
-            }
-
-            .section h2 {
-                font-size: 2.3rem;
-            }
-
-            .about-text {
-                font-size: 1.1rem;
-            }
-
-            .about-text h3 {
+            .form-group label {
                 font-size: 1.4rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .gallery-item {
-                height: 250px;
-            }
-
-            .event-item {
-                padding: 2rem 1.2rem;
-            }
-
-            .event-title {
-                font-size: 1.3rem;
-            }
-
-            .event-description {
-                font-size: 1rem;
-            }
-
-            .contact-item {
-                padding: 1.8rem 1.2rem;
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-icon {
-                width: 50px;
-                height: 50px;
-                margin: 0 auto;
+                margin-bottom: 1rem;
+                font-weight: 700;
             }
 
             .form-group input,
             .form-group textarea,
             .form-group select {
-                padding: 1rem;
-                font-size: 1rem;
+                padding: 1.5rem;
+                font-size: 1.3rem;
+                border-radius: 12px;
+                border-width: 2px;
+            }
+
+            .form-group textarea {
+                min-height: 180px;
+            }
+
+            .submit-btn {
+                padding: 1.8rem 3rem;
+                font-size: 1.4rem;
+                font-weight: 700;
+                border-radius: 12px;
+            }
+
+            .contact-item {
+                padding: 2.5rem 2rem;
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+
+            .contact-item h4 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+                font-weight: 700;
+            }
+
+            .contact-item p {
+                font-size: 1.3rem;
+                line-height: 1.7;
+            }
+
+            .contact-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.6rem;
+                flex-shrink: 0;
+            }
+
+            .social-links {
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .social-link {
+                width: 70px;
+                height: 70px;
+                font-size: 1.6rem;
+            }
+
+            /* Footer Mobile */
+            .footer-logo {
+                font-size: 2.2rem;
+                font-weight: 800;
+            }
+
+            .footer-logo svg {
+                width: 35px;
+                height: 35px;
+            }
+
+            .footer-text {
+                font-size: 1.3rem;
+                line-height: 1.7;
+                margin-bottom: 2.5rem;
+            }
+
+            .footer-bottom {
+                font-size: 1.1rem;
+                padding-top: 1.5rem;
+            }
+        }
+
+        /* Extra Small Mobile Devices */
+        @media (max-width: 480px) {
+            /* Navigation */
+            .logo {
+                font-size: 2rem;
+            }
+
+            .logo svg {
+                width: 42px;
+                height: 42px;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 2.5rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 4.2rem;
+                margin-bottom: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1.8rem;
+                margin-bottom: 2.8rem;
+            }
+
+            .cta-button {
+                padding: 20px 45px;
+                font-size: 1.3rem;
+            }
+
+            /* Sections */
+            .section {
+                padding: 4.5rem 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 3.2rem;
+                margin-bottom: 3rem;
+            }
+
+            /* About Text */
+            .about-text {
+                font-size: 1.4rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.9rem;
+                margin-bottom: 1.4rem;
+            }
+
+            .about-text p {
+                font-size: 1.3rem;
+                margin-bottom: 1.8rem;
+            }
+
+            .about-text strong {
+                font-size: 1.4rem;
+            }
+
+            /* Stats */
+            .stat-item {
+                padding: 2.8rem 1.8rem;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
+            }
+
+            .stat-label {
+                font-size: 1.2rem;
+            }
+
+            /* Gallery */
+            .gallery-item {
+                height: 300px;
+            }
+
+            .gallery-text h4 {
+                font-size: 1.7rem;
+            }
+
+            .gallery-text p {
+                font-size: 1.2rem;
+            }
+
+            /* Events */
+            .event-item {
+                padding: 2.8rem 1.8rem;
+            }
+
+            .event-date {
+                font-size: 1.2rem;
+                padding: 0.9rem 1.8rem;
+            }
+
+            .event-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.4rem;
+            }
+
+            .event-description {
+                font-size: 1.3rem;
+                line-height: 1.8;
+            }
+
+            /* Routes */
+            .route-item {
+                padding: 2.8rem 1.8rem !important;
+            }
+
+            .route-item h4 {
+                font-size: 1.7rem !important;
+                margin-bottom: 1.4rem !important;
+            }
+
+            .route-item p:first-of-type {
+                font-size: 1.3rem !important;
+                margin-bottom: 1.4rem !important;
+            }
+
+            .route-item p:last-of-type {
+                font-size: 1.1rem !important;
+            }
+
+            /* Contact */
+            .contact-item {
+                padding: 2.3rem 1.8rem;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-item h4 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .contact-item p {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .contact-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 1.5rem;
+                margin: 0 auto 1rem auto;
+            }
+
+            .form-group label {
+                font-size: 1.3rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 1.4rem;
+                font-size: 1.2rem;
+            }
+
+            .submit-btn {
+                padding: 1.6rem 2.8rem;
+                font-size: 1.3rem;
+            }
+
+            /* Social Links */
+            .social-link {
+                width: 65px;
+                height: 65px;
+                font-size: 1.5rem;
+            }
+
+            /* Footer */
+            .footer-logo {
+                font-size: 2rem;
+            }
+
+            .footer-text {
+                font-size: 1.2rem;
+                margin-bottom: 2.3rem;
+            }
+
+            .footer-bottom {
+                font-size: 1.05rem;
             }
         }
 
@@ -927,7 +1111,7 @@
         <div class="about-content">
             <div class="about-text">
                 <h3>Sejarah StratoVelo</h3>
-                <p>StratoVelo didirikan pada tahun 2019 oleh sekelompok pecinta sepeda balap dan fixie yang memiliki passion untuk perjalanan jarak jauh. Dimulai dari komunitas kecil di Jakarta, kami telah berkembang menjadi salah satu klub sepeda terkemuka di Indonesia.</p>
+                <p>StratoVelo didirikan pada tahun 2025 oleh sekelompok pecinta sepeda balap dan fixie yang memiliki passion untuk perjalanan jarak jauh. Dimulai dari komunitas kecil di Cilacap, kami telah berkembang menjadi salah satu klub sepeda terkemuka di Cilacap.</p>
                 
                 <h3>Misi & Visi</h3>
                 <p><strong>Misi:</strong> Menciptakan komunitas sepeda yang solid, mendorong gaya hidup sehat, dan mengeksplorasi keindahan Indonesia melalui roda dua.</p>
