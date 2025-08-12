@@ -246,7 +246,9 @@
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease;
-            background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
         .gallery-item:hover {
@@ -283,6 +285,31 @@
         .gallery-text p {
             font-size: 0.9rem;
             color: #cccccc;
+        }
+
+        /* Gallery Images */
+        .gallery-item:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1544191696-15693072d5d5?w=600&h=400&fit=crop&crop=center');
+        }
+
+        .gallery-item:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop&crop=center');
+        }
+
+        .gallery-item:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1558168055-f034fb9cdb52?w=600&h=400&fit=crop&crop=center');
+        }
+
+        .gallery-item:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1544985361-b420d7a77043?w=600&h=400&fit=crop&crop=center');
+        }
+
+        .gallery-item:nth-child(5) {
+            background-image: url('https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&h=400&fit=crop&crop=center');
+        }
+
+        .gallery-item:nth-child(6) {
+            background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop&crop=center');
         }
 
         /* Events Section */
@@ -1026,14 +1053,6 @@
             background: #d4af37;
         }
 
-        /* Enhanced gallery items with background gradients */
-        .gallery-item:nth-child(1) { background: linear-gradient(135deg, #1a365d, #2d2d2d); }
-        .gallery-item:nth-child(2) { background: linear-gradient(135deg, #2d2d2d, #1a365d); }
-        .gallery-item:nth-child(3) { background: linear-gradient(135deg, #1a1a1a, #333333); }
-        .gallery-item:nth-child(4) { background: linear-gradient(135deg, #333333, #1a365d); }
-        .gallery-item:nth-child(5) { background: linear-gradient(135deg, #1a365d, #1a1a1a); }
-        .gallery-item:nth-child(6) { background: linear-gradient(135deg, #2d2d2d, #333333); }
-
         /* Enhanced button hover effects */
         .cta-button:hover {
             background: linear-gradient(45deg, #d4af37, #1a365d);
@@ -1062,6 +1081,112 @@
 
         .mobile-menu.active span:nth-child(3) {
             transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Gallery Image Overlay Effect */
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.3), rgba(212, 175, 55, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-overlay {
+            z-index: 2;
+        }
+
+        /* Enhanced Gallery Item Loading Animation */
+        .gallery-item {
+            background-color: #2d2d2d;
+            animation: imageLoad 0.5s ease-out;
+        }
+
+        @keyframes imageLoad {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Lightbox Modal for Gallery */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .lightbox-close:hover {
+            color: #d4af37;
+        }
+
+        /* Enhanced Gallery Item Information */
+        .gallery-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-info {
+            transform: translateY(0);
+        }
+
+        .gallery-item .gallery-text {
+            z-index: 3;
+            position: relative;
         }
     </style>
 </head>
@@ -1145,7 +1270,7 @@
     <section id="gallery" class="section">
         <h2>Galeri Perjalanan</h2>
         <div class="gallery-grid">
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1544191696-15693072d5d5?w=1200&h=800&fit=crop&crop=center')">
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h4>Tour de Java</h4>
@@ -1153,7 +1278,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&h=800&fit=crop&crop=center')">
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h4>Bromo Sunrise Ride</h4>
@@ -1161,7 +1286,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558168055-f034fb9cdb52?w=1200&h=800&fit=crop&crop=center')">
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h4>Coastal Road Challenge</h4>
@@ -1169,7 +1294,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1544985361-b420d7a77043?w=1200&h=800&fit=crop&crop=center')">
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h4>Mountain Pass Conquest</h4>
@@ -1177,7 +1302,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&h=800&fit=crop&crop=center')">
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h4>Night Ride Jakarta</h4>
@@ -1185,7 +1310,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=800&fit=crop&crop=center')">
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h4>Bali Loop Adventure</h4>
@@ -1195,6 +1320,14 @@
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightbox-img" src="" alt="Gallery Image">
+        </div>
+    </div>
 
     <!-- Events Section -->
     <section id="events" class="section">
@@ -1426,6 +1559,28 @@
             alert('Terima kasih! Pesan Anda akan diteruskan via WhatsApp.');
         });
 
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
@@ -1550,6 +1705,131 @@
                     item.classList.add('active');
                 }
             });
+        });
+
+        // Gallery lazy loading
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${Math.random() * 0.5}s`;
+                    entry.target.classList.add('fade-in');
+                    galleryObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        galleryItems.forEach(item => {
+            galleryObserver.observe(item);
+        });
+
+        // Enhanced gallery interactions
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+            item.addEventListener('click', function() {
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                }, 150);
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            hero.style.backgroundPosition = `center ${rate}px`;
+        });
+
+        // Add scroll-to-top button
+        const scrollTopBtn = document.createElement('button');
+        scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollTopBtn.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #1a365d, #d4af37);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        `;
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        scrollTopBtn.addEventListener('mouseenter', () => {
+            scrollTopBtn.style.transform = 'translateY(-3px)';
+            scrollTopBtn.style.boxShadow = '0 6px 20px rgba(212, 175, 55, 0.4)';
+        });
+
+        scrollTopBtn.addEventListener('mouseleave', () => {
+            scrollTopBtn.style.transform = 'translateY(0)';
+            scrollTopBtn.style.boxShadow = '0 4px 12px rgba(212, 175, 55, 0.3)';
+        });
+
+        document.body.appendChild(scrollTopBtn);
+
+        // Show/hide scroll-to-top button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        // Smooth reveal animation for sections
+        const revealSections = document.querySelectorAll('.section');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealSections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            revealObserver.observe(section);
+        });
+
+        // Add typing effect to hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const heroTagline = document.querySelector('.hero p');
+                if (heroTagline) {
+                    const originalText = heroTagline.textContent;
+                    typeWriter(heroTagline, originalText, 80);
+                }
+            }, 1000);
         });
     </script>
 </body>
